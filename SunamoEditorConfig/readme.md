@@ -1,0 +1,1 @@
+Serializer and deserializer for .EditorConfig files
