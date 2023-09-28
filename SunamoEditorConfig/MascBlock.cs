@@ -1,6 +1,3 @@
-﻿using System.Linq;
-using System.Text;
-
 namespace SunamoEditorConfig
 {
     public class MascBlock : RootBlock

@@ -1,5 +1,3 @@
-﻿using SunamoEditorConfig.Tests;
-
 namespace SunamoEditorConfig.TestRunner
 {
     internal static class Program

@@ -1,5 +1,3 @@
-﻿using System.Collections.Generic;
-
 namespace SunamoEditorConfig
 {
     internal static class ListHelper
