@@ -1,11 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0-windows</TargetFrameworks>
-	  <PackRelease>true</PackRelease>
-	  <IsPackable>true</IsPackable>
-	  <Version>1.0.18</Version>
+    <TargetFrameworks>net6.0;net8.0-windows</TargetFrameworks>
+    <PackRelease>true</PackRelease>
+    <IsPackable>true</IsPackable>
+    <Version>24.1.11.1</Version>
+    <Description>Parser and generator for .editorconfig files</Description>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'"></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>$(DefineConstants);ASYNC</DefineConstants>
   </PropertyGroup>

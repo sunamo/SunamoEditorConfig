@@ -1,6 +1,6 @@
 namespace SunamoEditorConfig
 {
-    internal static class StringHelper
+    public static class StringHelper
     {
         private const string N = Consts.N;
         private const string Nl = Consts.Nl;

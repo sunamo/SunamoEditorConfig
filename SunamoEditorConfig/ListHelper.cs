@@ -1,6 +1,6 @@
 namespace SunamoEditorConfig
 {
-    internal static class ListHelper
+    public static class ListHelper
     {
         public static List<string> Trim(List<string> list)
         {
