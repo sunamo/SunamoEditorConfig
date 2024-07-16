@@ -1,7 +1,5 @@
-using SunamoEditorConfig._sunamo;
 
 namespace SunamoEditorConfig;
-
 public static class EditorConfigHelper
 {
     public static string Serialize(string path, EditorConfigContent content, string newLine)

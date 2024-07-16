@@ -1,7 +1,5 @@
-using SunamoEditorConfig._sunamo;
 
 namespace SunamoEditorConfig;
-
 public class RootBlock
 {
     public List<Definition> Definitions { get; set; } = new List<Definition>();
