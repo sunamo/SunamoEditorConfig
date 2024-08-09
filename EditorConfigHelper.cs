@@ -1,5 +1,5 @@
-
 namespace SunamoEditorConfig;
+
 public static class EditorConfigHelper
 {
     public static string Serialize(string path, EditorConfigContent content, string newLine)
@@ -56,12 +56,13 @@ public static class EditorConfigHelper
                 var rootBlockResult = RootBlock.Parse(block, null);
 
                 if (rootBlockResult.Exception != null)
-                    return new ResultWithExceptionEditorConfig<EditorConfigContent> { Exception = rootBlockResult.Exception };
+                    return new ResultWithExceptionEditorConfig<EditorConfigContent>
+                        { Exception = rootBlockResult.Exception };
 
                 rootBlock = rootBlockResult.Result;
             }
 
         return new ResultWithExceptionEditorConfig<EditorConfigContent>
-        { Result = new EditorConfigContent { MascBlocks = mascBlocks, RootBlock = rootBlock } };
+            { Result = new EditorConfigContent { MascBlocks = mascBlocks, RootBlock = rootBlock } };
     }
 }

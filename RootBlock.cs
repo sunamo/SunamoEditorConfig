@@ -1,8 +1,8 @@
-
 namespace SunamoEditorConfig;
+
 public class RootBlock
 {
-    public List<Definition> Definitions { get; set; } = new List<Definition>();
+    public List<Definition> Definitions { get; set; } = new();
 
     public static ResultWithExceptionEditorConfig<RootBlock> Parse(string block, List<string> lines)
     {
@@ -16,7 +16,8 @@ public class RootBlock
             var parts = StringHelper.Split(line, "=");
 
             if (parts.Count != 2)
-                return new ResultWithExceptionEditorConfig<RootBlock> { Exception = "Unparseable line: \"" + line + "\"" };
+                return new ResultWithExceptionEditorConfig<RootBlock>
+                    { Exception = "Unparseable line: \"" + line + "\"" };
 
             parts = ListHelper.Trim(parts);
 

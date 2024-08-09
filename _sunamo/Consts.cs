@@ -1,4 +1,5 @@
 namespace SunamoEditorConfig._sunamo;
+
 internal static class Consts
 {
     internal const string N = "\n";
