@@ -1,6 +1,5 @@
-using SunamoEditorConfig._sunamo;
-
 namespace SunamoEditorConfig;
+using SunamoEditorConfig._sunamo;
 
 public static class StringHelper
 {
