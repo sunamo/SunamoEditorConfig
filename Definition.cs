@@ -1,6 +1,4 @@
 namespace SunamoEditorConfig;
-using SunamoEditorConfig._sunamo;
-
 public class Definition
 {
     public string Key { get; set; }

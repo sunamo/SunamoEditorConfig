@@ -1,6 +1,4 @@
 namespace SunamoEditorConfig;
-using SunamoEditorConfig._sunamo;
-
 public static class StringHelper
 {
     private const string N = "\n";

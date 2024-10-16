@@ -1,6 +1,4 @@
 namespace SunamoEditorConfig;
-using SunamoEditorConfig._sunamo;
-
 public class MascBlock : RootBlock
 {
     private string ValidFor { get; set; }
