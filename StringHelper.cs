@@ -3,8 +3,8 @@ using SunamoEditorConfig._sunamo;
 
 public static class StringHelper
 {
-    private const string N = Consts.N;
-    private const string Nl = Consts.Nl;
+    private const string N = "\n";
+    private const string Nl = "\r\n";
 
     public static List<string> GetLines(string text)
     {

@@ -8,7 +8,7 @@ public class MascBlock : RootBlock
     public static bool IsLineWithMasc(string text)
     {
         text = text.Trim();
-        return text.StartsWith(Consts.SquareBracketStart) && text.EndsWith(Consts.SquareBracketEnd);
+        return text.StartsWith("[") && text.EndsWith("]");
     }
 
     public static ResultWithExceptionEditorConfig<MascBlock> Parse(string block)
@@ -35,7 +35,7 @@ public class MascBlock : RootBlock
     {
         var sb = new StringBuilder();
 
-        sb.AppendLine(Consts.SquareBracketStart + ValidFor + Consts.SquareBracketEnd);
+        sb.AppendLine("[" + ValidFor + "]");
 
         foreach (var definition in Definitions) sb.AppendLine(definition.ToString());
 

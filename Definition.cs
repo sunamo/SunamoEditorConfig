@@ -8,6 +8,6 @@ public class Definition
 
     public override string ToString()
     {
-        return Key + Consts.DefinitionDelimiter + Value;
+        return Key + "=" + Value;
     }
 }
