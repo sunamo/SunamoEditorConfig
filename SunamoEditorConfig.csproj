@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net9.0;net9.0</TargetFrameworks>
     <PackRelease>true</PackRelease>
     <IsPackable>true</IsPackable>
     <Version>24.11.12.1</Version>
