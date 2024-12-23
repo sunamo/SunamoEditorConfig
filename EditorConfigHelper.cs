@@ -15,9 +15,9 @@ public static class EditorConfigHelper
         return serialized;
     }
 
-    public static ResultWithExceptionEditorConfig<EditorConfigContent> Deserialize(string path, string text)
+    public static ResultWithExceptionEditorConfig<EditorConfigContent> Deserialize(string path, string? text)
     {
-        if (text == null) text = File.ReadAllText(path);
+        text ??= File.ReadAllText(path);
 
         var lines = StringHelper.GetLines(text);
 
@@ -39,7 +39,7 @@ public static class EditorConfigHelper
 
         blocks.Add(sb.ToString());
 
-        RootBlock rootBlock = null;
+        RootBlock? rootBlock = null;
         var mascBlocks = new List<MascBlock>();
 
         foreach (var block in blocks)
@@ -47,22 +47,25 @@ public static class EditorConfigHelper
             {
                 var mascBlock = MascBlock.Parse(block);
                 if (mascBlock.Exception != null)
-                    return new ResultWithExceptionEditorConfig<EditorConfigContent> { Exception = mascBlock.Exception };
+                    return new ResultWithExceptionEditorConfig<EditorConfigContent>(mascBlock.Exception);
 
-                mascBlocks.Add(mascBlock.Result);
+                mascBlocks.Add(mascBlock.Result!);
             }
             else
             {
                 var rootBlockResult = RootBlock.Parse(block, null);
 
                 if (rootBlockResult.Exception != null)
-                    return new ResultWithExceptionEditorConfig<EditorConfigContent>
-                        { Exception = rootBlockResult.Exception };
+                    return new ResultWithExceptionEditorConfig<EditorConfigContent>(rootBlockResult.Exception);
 
-                rootBlock = rootBlockResult.Result;
+                rootBlock = rootBlockResult.Result!;
             }
 
-        return new ResultWithExceptionEditorConfig<EditorConfigContent>
-            { Result = new EditorConfigContent { MascBlocks = mascBlocks, RootBlock = rootBlock } };
+        if (rootBlock == null)
+        {
+            throw new Exception($"{nameof(rootBlock)} is null");
+        }
+
+        return new ResultWithExceptionEditorConfig<EditorConfigContent>(new EditorConfigContent(rootBlock, mascBlocks));
     }
 }

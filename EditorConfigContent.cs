@@ -1,9 +1,9 @@
 namespace SunamoEditorConfig;
 
-public class EditorConfigContent
+public class EditorConfigContent(RootBlock rootBlock, List<MascBlock> mascBlocks)
 {
-    public RootBlock RootBlock { get; set; }
-    public List<MascBlock> MascBlocks { get; set; }
+    public RootBlock RootBlock { get; set; } = rootBlock;
+    public List<MascBlock> MascBlocks { get; set; } = mascBlocks;
 
     public override string ToString()
     {

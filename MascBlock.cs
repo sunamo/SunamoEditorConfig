@@ -1,12 +1,18 @@
 namespace SunamoEditorConfig;
 public class MascBlock : RootBlock
 {
+    public MascBlock(string validFor, List<Definition> definitions) : base()
+    {
+        ValidFor = validFor;
+        Definitions = definitions;
+    }
+
     private string ValidFor { get; set; }
 
     public static bool IsLineWithMasc(string text)
     {
         text = text.Trim();
-        return text.StartsWith("[") && text.EndsWith("]");
+        return text.StartsWith('[') && text.EndsWith(']');
     }
 
     public static ResultWithExceptionEditorConfig<MascBlock> Parse(string block)
@@ -17,16 +23,14 @@ public class MascBlock : RootBlock
         var definitions = Parse(null, otherLines);
 
         if (definitions.Exception != null)
-            return new ResultWithExceptionEditorConfig<MascBlock> { Exception = definitions.Exception };
+            return new ResultWithExceptionEditorConfig<MascBlock>(definitions.Exception);
 
-        return new ResultWithExceptionEditorConfig<MascBlock>
+        if (definitions.Result == null)
         {
-            Result = new MascBlock
-            {
-                ValidFor = StringHelper.BetweenFirstAndSecondChar(lines.First()),
-                Definitions = definitions.Result.Definitions
-            }
-        };
+            throw new Exception($"Both of {nameof(definitions.Exception)} and {nameof(definitions.Result)} is null");
+        }
+
+        return new ResultWithExceptionEditorConfig<MascBlock>(new MascBlock(StringHelper.BetweenFirstAndSecondChar(lines.First()), definitions.Result.Definitions));
     }
 
     public override string ToString()
