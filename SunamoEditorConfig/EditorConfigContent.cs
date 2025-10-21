@@ -1,3 +1,6 @@
+// EN: Variable names have been checked and replaced with self-descriptive names
+// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+
 namespace SunamoEditorConfig;
 
 public class EditorConfigContent(RootBlock rootBlock, List<MascBlock> mascBlocks)
@@ -7,12 +10,12 @@ public class EditorConfigContent(RootBlock rootBlock, List<MascBlock> mascBlocks
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        var stringBuilder = new StringBuilder();
 
-        sb.AppendLine(RootBlock.ToString());
+        stringBuilder.AppendLine(RootBlock.ToString());
 
-        foreach (var block in MascBlocks) sb.AppendLine(block.ToString());
+        foreach (var block in MascBlocks) stringBuilder.AppendLine(block.ToString());
 
-        return sb.ToString();
+        return stringBuilder.ToString();
     }
 }

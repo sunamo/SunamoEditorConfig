@@ -1,3 +1,6 @@
+// EN: Variable names have been checked and replaced with self-descriptive names
+// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+
 namespace SunamoEditorConfig;
 public class MascBlock : RootBlock
 {
@@ -35,12 +38,12 @@ public class MascBlock : RootBlock
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        var stringBuilder = new StringBuilder();
 
-        sb.AppendLine("[" + ValidFor + "]");
+        stringBuilder.AppendLine("[" + ValidFor + "]");
 
-        foreach (var definition in Definitions) sb.AppendLine(definition.ToString());
+        foreach (var definition in Definitions) stringBuilder.AppendLine(definition.ToString());
 
-        return sb.ToString();
+        return stringBuilder.ToString();
     }
 }

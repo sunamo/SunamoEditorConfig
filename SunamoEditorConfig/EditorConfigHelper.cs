@@ -1,3 +1,6 @@
+// EN: Variable names have been checked and replaced with self-descriptive names
+// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+
 namespace SunamoEditorConfig;
 
 public static class EditorConfigHelper
@@ -23,21 +26,21 @@ public static class EditorConfigHelper
 
         var blocks = new List<string>();
 
-        var sb = new StringBuilder();
+        var stringBuilder = new StringBuilder();
 
         foreach (var line in lines)
         {
             if (MascBlock.IsLineWithMasc(line))
             {
-                blocks.Add(sb.ToString());
+                blocks.Add(stringBuilder.ToString());
 
-                sb = new StringBuilder();
+                stringBuilder = new StringBuilder();
             }
 
-            sb.AppendLine(line);
+            stringBuilder.AppendLine(line);
         }
 
-        blocks.Add(sb.ToString());
+        blocks.Add(stringBuilder.ToString());
 
         RootBlock? rootBlock = null;
         var mascBlocks = new List<MascBlock>();
