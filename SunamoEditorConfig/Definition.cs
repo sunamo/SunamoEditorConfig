@@ -1,6 +1,7 @@
+namespace SunamoEditorConfig;
+
 // EN: Variable names have been checked and replaced with self-descriptive names
 // CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
-namespace SunamoEditorConfig;
 public class Definition
 {
     public Definition(string key, string value)
