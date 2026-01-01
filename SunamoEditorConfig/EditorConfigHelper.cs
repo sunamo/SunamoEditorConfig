@@ -1,7 +1,17 @@
 namespace SunamoEditorConfig;
 
+/// <summary>
+/// Provides helper methods for serializing and deserializing EditorConfig files
+/// </summary>
 public static class EditorConfigHelper
 {
+    /// <summary>
+    /// Serializes EditorConfigContent to a string and optionally writes it to a file
+    /// </summary>
+    /// <param name="path">The file path to write to (can be null to skip file writing)</param>
+    /// <param name="content">The EditorConfigContent to serialize</param>
+    /// <param name="newLine">The line ending to use in the serialized output</param>
+    /// <returns>The serialized EditorConfig string</returns>
     public static string Serialize(string path, EditorConfigContent content, string newLine)
     {
         var serialized = content.ToString();
@@ -15,6 +25,12 @@ public static class EditorConfigHelper
         return serialized;
     }
 
+    /// <summary>
+    /// Deserializes an EditorConfig file from a path or text content
+    /// </summary>
+    /// <param name="path">The file path to read from</param>
+    /// <param name="text">The text content to parse (if null, reads from path)</param>
+    /// <returns>A result containing the parsed EditorConfigContent or an exception if parsing fails</returns>
     public static ResultWithExceptionEditorConfig<EditorConfigContent> Deserialize(string path, string? text)
     {
         text ??= File.ReadAllText(path);

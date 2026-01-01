@@ -1,21 +1,40 @@
 namespace SunamoEditorConfig;
 
+/// <summary>
+/// Represents a MASC (Match And Settings Configuration) block in an EditorConfig file
+/// A MASC block starts with a pattern like [*.cs] and contains settings for matching files
+/// </summary>
 public class MascBlock : RootBlock
 {
+    /// <summary>
+    /// Initializes a new instance of the MascBlock class
+    /// </summary>
+    /// <param name="validFor">The file pattern this block is valid for (e.g., "*.cs")</param>
+    /// <param name="definitions">The list of settings definitions for matching files</param>
     public MascBlock(string validFor, List<Definition> definitions) : base()
     {
-        ValidFor = validFor;
+        this.validFor = validFor;
         Definitions = definitions;
     }
 
-    private string ValidFor { get; set; }
+    private string validFor { get; set; }
 
+    /// <summary>
+    /// Checks if a line represents the start of a MASC block (enclosed in square brackets)
+    /// </summary>
+    /// <param name="text">The line text to check</param>
+    /// <returns>True if the line is a MASC block header, false otherwise</returns>
     public static bool IsLineWithMasc(string text)
     {
         text = text.Trim();
         return text.StartsWith('[') && text.EndsWith(']');
     }
 
+    /// <summary>
+    /// Parses a text block into a MascBlock object
+    /// </summary>
+    /// <param name="block">The text block containing the MASC block definition</param>
+    /// <returns>A result containing the parsed MascBlock or an exception if parsing fails</returns>
     public static ResultWithExceptionEditorConfig<MascBlock> Parse(string block)
     {
         var lines = StringHelper.GetLines(block);
@@ -34,11 +53,15 @@ public class MascBlock : RootBlock
         return new ResultWithExceptionEditorConfig<MascBlock>(new MascBlock(StringHelper.BetweenFirstAndSecondChar(lines.First()), definitions.Result.Definitions));
     }
 
+    /// <summary>
+    /// Converts the MascBlock to its string representation in EditorConfig format
+    /// </summary>
+    /// <returns>The EditorConfig formatted string</returns>
     public override string ToString()
     {
         var stringBuilder = new StringBuilder();
 
-        stringBuilder.AppendLine("[" + ValidFor + "]");
+        stringBuilder.AppendLine("[" + validFor + "]");
 
         foreach (var definition in Definitions) stringBuilder.AppendLine(definition.ToString());
 
