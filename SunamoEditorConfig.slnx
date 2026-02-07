@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="SunamoEditorConfig.Tests\\SunamoEditorConfig.Tests.csproj" />
+  <Project Path="RunnerEditorConfig\\RunnerEditorConfig.csproj" />
+  <Project Path="SunamoEditorConfig\SunamoEditorConfig.csproj" />
+</Solution>
