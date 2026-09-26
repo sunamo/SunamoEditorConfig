@@ -61,7 +61,7 @@ public class MascBlock : RootBlock
     {
         var stringBuilder = new StringBuilder();
 
-        stringBuilder.AppendLine("[" + validFor + "]");
+        stringBuilder.AppendLine($"[{validFor}]");
 
         foreach (var definition in Definitions) stringBuilder.AppendLine(definition.ToString());
 

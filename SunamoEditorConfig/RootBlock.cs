@@ -35,7 +35,7 @@ public class RootBlock
             var parts = StringHelper.Split(line, "=");
 
             if (parts.Count != 2)
-                return new ResultWithExceptionEditorConfig<RootBlock>("Unparseable line: \"" + line + "\"");
+                return new ResultWithExceptionEditorConfig<RootBlock>($"Unparseable line: \"{line}\"");
 
             parts = ListHelper.Trim(parts);
 

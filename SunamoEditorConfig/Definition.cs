@@ -30,8 +30,5 @@ public class Definition
     /// Converts the definition to its string representation in EditorConfig format (key=value)
     /// </summary>
     /// <returns>The EditorConfig formatted string</returns>
-    public override string ToString()
-    {
-        return Key + "=" + Value;
-    }
+    public override string ToString() => $"{Key}={Value}";
 }
