@@ -1,5 +1,10 @@
 # SunamoEditorConfig
 
+## Short description
+
+Parser a generátor souborů .editorconfig.
+
+
 Parser and generator for .editorconfig files
 
 ## Overview
