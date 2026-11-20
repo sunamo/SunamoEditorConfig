@@ -1,9 +1,21 @@
 namespace SunamoEditorConfig;
 
+/// <summary>
+/// Represents the root block type.
+/// </summary>
 public class RootBlock
 {
+    /// <summary>
+    /// Gets or sets the definitions.
+    /// </summary>
     public List<Definition> Definitions { get; set; } = [];
 
+    /// <summary>
+    /// Parse.
+    /// </summary>
+    /// <param name="block">The block.</param>
+    /// <param name="lines">The lines.</param>
+    /// <returns>The parse result.</returns>
     public static ResultWithExceptionEditorConfig<RootBlock> Parse(string? block, List<string>? lines)
     {
         var rootBlock = new RootBlock();
@@ -33,6 +45,12 @@ public class RootBlock
         return new ResultWithExceptionEditorConfig<RootBlock>(rootBlock);
     }
 
+    /// <summary>
+    /// To string.
+    /// </summary>
+    /// <typeparam name="RootBlock">The type RootBlock.</typeparam>
+    /// <param name="rootBlock">The root block.</param>
+    /// <returns>The to string result.</returns>
     public override string ToString()
     {
         var stringBuilder = new StringBuilder();

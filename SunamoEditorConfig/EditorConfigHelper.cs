@@ -1,7 +1,17 @@
 namespace SunamoEditorConfig;
 
+/// <summary>
+/// Represents the editor config helper type.
+/// </summary>
 public static class EditorConfigHelper
 {
+    /// <summary>
+    /// Serialize.
+    /// </summary>
+    /// <param name="path">The path.</param>
+    /// <param name="content">The content.</param>
+    /// <param name="newLine">The new line.</param>
+    /// <returns>The serialize result.</returns>
     public static string Serialize(string path, EditorConfigContent content, string newLine)
     {
         var serialized = content.ToString();
@@ -15,6 +25,12 @@ public static class EditorConfigHelper
         return serialized;
     }
 
+    /// <summary>
+    /// Deserialize.
+    /// </summary>
+    /// <param name="path">The path.</param>
+    /// <param name="text">The text.</param>
+    /// <returns>The deserialize result.</returns>
     public static ResultWithExceptionEditorConfig<EditorConfigContent> Deserialize(string path, string? text)
     {
         text ??= File.ReadAllText(path);
