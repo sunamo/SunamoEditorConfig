@@ -1,4 +1,3 @@
-// variables names: ok
 namespace RunnerEditorConfig;
 
 internal class Program
