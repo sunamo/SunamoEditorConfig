@@ -5,7 +5,7 @@
     <PackRelease>true</PackRelease>
     <IsPackable>true</IsPackable>
     <EnablePackageValidation>true</EnablePackageValidation>
-    <Version>26.5.18.4</Version>
+    <Version>26.11.23.1</Version>
     <Description>Parser and generator for .editorconfig files</Description>
     <Authors>www.sunamo.cz</Authors>
     <Copyright>www.sunamo.cz</Copyright>
